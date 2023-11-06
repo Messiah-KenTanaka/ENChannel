@@ -1,8 +1,9 @@
 <?php 
 
-if (isset($_POST["title"])) {
-	$title = $_POST["title"];
+if (isset($_POST['title'])) {
+	$title = $_POST['title'];
 	var_dump($title);
+	var_dump($_SERVER['SCRIPT_NAME']);
 }
 	
 ?>
@@ -20,9 +21,9 @@ if (isset($_POST["title"])) {
 
 <body>
 	<!-- ヘッダーを読み込む -->
-	<?php include(__DIR__ . "/views/parts/header.php"); ?>
+	<?php include(__DIR__ . '/views/parts/header.php'); ?>
   <!-- ナビゲーションバーを読み込む -->
-	<?php include(__DIR__ . "/views/parts/navbar.php"); ?>
+	<?php include(__DIR__ . '/views/parts/navbar.php'); ?>
 
 	<!-- メインコンテンツ -->
   <main class="container my-4">
@@ -30,7 +31,7 @@ if (isset($_POST["title"])) {
 		<!-- スレッドを立ち上げる -->
 		<div class="container my-3 p-3 bg-success-subtle">
 			<h2>スレッドを立ち上げる</h2>
-			<form action="/" method="POST">
+			<form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="POST">
 				<div class="mb-3">
 					<label for="title" class="form-label">スレッド名</label>
 					<input type="text" class="form-control" id="title" name="title" placeholder="スレッド名を入力">
@@ -49,7 +50,7 @@ if (isset($_POST["title"])) {
   </main>
 
 	<!-- フッターを読み込む -->
-	<?php include(__DIR__ . "/views/parts/footer.php"); ?>
+	<?php include(__DIR__ . '/views/parts/footer.php'); ?>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	<script src="/views/js/script.js"></script>

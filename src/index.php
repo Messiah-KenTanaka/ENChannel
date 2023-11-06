@@ -10,56 +10,21 @@
 </head>
 
 <body>
-  <header class="bg-primary text-white p-4">
-    <h1>89ちゃんねる</h1>
-    <p>スレッドを立ち上げて語り合おう</p>
-  </header>
+	<!-- ヘッダーを読み込む -->
+	<?php include(__DIR__ . "/views/parts/header.php"); ?>
+  <!-- ナビゲーションバーを読み込む -->
+	<?php include(__DIR__ . "/views/parts/navbar.php"); ?>
 
-  <!-- Bootstrapのナビゲーションバー -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">89ちゃんねる</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#home">ホーム</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#news">ニュース</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">お問い合わせ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">このサイトについて</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+	<!-- メインコンテンツ -->
   <main class="container my-4">
-    <!-- メインコンテンツ -->
-    <section id="home" class="my-4">
-      <h2>ホーム</h2>
+		<section id="home" class="my-4">
+      <h2>スレッド</h2>
       <p>ようこそ89ちゃんねるへ。ここでは様々な話題についてディスカッションを行うことができます。</p>
     </section>
-
-    <section id="news" class="my-4">
-      <h2>ニュース</h2>
-      <p>最新のニュースや更新情報をここでチェックしましょう。</p>
-    </section>
-
-    <!-- 他のセクションや記事を追加する場合はここに挿入 -->
-
   </main>
 
-  <footer class="bg-dark text-white text-center p-4 fixed-bottom">
-    <p>&copy; <?php echo date("Y"); ?> 89ちゃんねる</p>
-  </footer>
+	<!-- フッターを読み込む -->
+	<?php include(__DIR__ . "/views/parts/footer.php"); ?>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	<script src="/views/js/script.js"></script>

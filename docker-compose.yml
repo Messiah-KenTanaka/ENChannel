@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   web:
+    build: .
     image: php:8.1-apache
     container_name: php_web
     volumes:

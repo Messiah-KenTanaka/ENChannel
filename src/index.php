@@ -1,20 +1,33 @@
-<?php 
+<?php
+
+$dsn = 'mysql:dbname=enchannel;host=db;port=3306';
+$user = 'user';
+$password = 'password';
+
+// DBへ接続
+try {
+	$dbh = new PDO($dsn, $user, $password);
+	print("データベースの接続に成功しました");
+} catch (PDOException $e) {
+	print("データベースの接続に失敗しました" . $e->getMessage());
+	die();
+}
 
 if (isset($_POST['title'])) {
 	$title = $_POST['title'];
 	var_dump($title);
 	var_dump($_SERVER['SCRIPT_NAME']);
 }
-	
+
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>89ちゃんねる</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>89ちゃんねる</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 	<link rel="stylesheet" href="/views/css/style.css">
 </head>
@@ -22,11 +35,11 @@ if (isset($_POST['title'])) {
 <body>
 	<!-- ヘッダーを読み込む -->
 	<?php include(__DIR__ . '/views/parts/header.php'); ?>
-  <!-- ナビゲーションバーを読み込む -->
+	<!-- ナビゲーションバーを読み込む -->
 	<?php include(__DIR__ . '/views/parts/navbar.php'); ?>
 
 	<!-- メインコンテンツ -->
-  <main class="container my-4">
+	<main class="container my-4">
 
 		<!-- スレッドを立ち上げる -->
 		<div class="container my-3 p-3 bg-success-subtle">
@@ -43,11 +56,11 @@ if (isset($_POST['title'])) {
 
 		<!-- スレッド一覧 -->
 		<section id="home" class="my-4">
-      <h2>スレッド一覧</h2>
-      <p>ようこそ89ちゃんねるへ。ここでは様々な話題についてディスカッションを行うことができます。</p>
-    </section>
+			<h2>スレッド一覧</h2>
+			<p>ようこそ89ちゃんねるへ。ここでは様々な話題についてディスカッションを行うことができます。</p>
+		</section>
 
-  </main>
+	</main>
 
 	<!-- フッターを読み込む -->
 	<?php include(__DIR__ . '/views/parts/footer.php'); ?>

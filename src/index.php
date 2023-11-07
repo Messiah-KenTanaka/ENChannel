@@ -1,22 +1,22 @@
 <?php
 
 include(__DIR__ . '/database/database.php');
+include(__DIR__ . '/app/functions/utill.php');
 
-$errormsg = array();
+$error_msg = array();
 
 // INSERT処理 新規スレッドを立ち上げ
-if (isset($_POST['title'])) {
-	try {
-		$sql = "INSERT INTO threads (title) VALUES (:title)";
-		$stmt = $dbh->prepare($sql);
-		$stmt->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
-		$stmt->execute();
+include(__DIR__ . '/api/thread_add.php');
 
-		header("location: views/pages/thread.php");
-	} catch (Exception $e) {
-		echo 'Error: ' . $e->getMessage();
-		$errormsg = 'スレッドの立ち上げに失敗しました。';
-	}
+// SELECT スレッド一覧を取得
+try {
+	$sql = "SELECT * FROM threads ORDER BY id DESC";
+	$stmt = $dbh->prepare($sql);
+	$stmt->execute();
+	$threads = $stmt->fetchAll();
+} catch (PDOException $e) {
+	echo 'Error: ' . $e->getMessage();
+	$error_msg = 'スレッド一覧を読み込めませんでした。';
 }
 
 ?>
@@ -42,14 +42,10 @@ if (isset($_POST['title'])) {
 	<main class="container my-4">
 
 		<!-- エラー内容表示 -->
-		<?php if (!empty($errormsg)) { ?>
-			<div class="bg-danger text-white p-3 rounded">
-				<?php echo $errormsg; ?>
-			</div>
-		<?php } ?>
+		<?php include(__DIR__ . '/views/parts/validation.php'); ?>
 
 		<!-- スレッドを立ち上げる -->
-		
+
 		<div class="container my-3 p-3 bg-success-subtle">
 			<h2>スレッドを立ち上げる</h2>
 			<form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="POST">
@@ -65,6 +61,24 @@ if (isset($_POST['title'])) {
 		<section id="home" class="my-4">
 			<h2>スレッド一覧</h2>
 			<p>ようこそ89ちゃんねるへ。ここでは様々な話題についてディスカッションを行うことができます。</p>
+			<div class="row">
+				<?php foreach ($threads as $thread) : ?>
+					<div class="col-md-6">
+						<div class="card mb-4 shadow-sm">
+							<a href="#" class="card-body">
+								<h5 class="card-title"><?= h($thread['title']) ?></h5>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<!-- <button type="button" class="btn btn-sm btn-outline-secondary">表示</button> -->
+										<!-- <button type="button" class="btn btn-sm btn-outline-secondary">編集</button> -->
+									</div>
+									<small class="text-muted"><?= $thread['created_at'] ?></small>
+								</div>
+							</a>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
 		</section>
 
 	</main>

@@ -24,6 +24,7 @@ services:
       MYSQL_DATABASE: enchannel
       MYSQL_USER: user
       MYSQL_PASSWORD: password
+      TZ: Asia/Tokyo
     volumes:
       - dbdata:/var/lib/mysql
     ports:

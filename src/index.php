@@ -2,10 +2,21 @@
 
 include(__DIR__ . '/database/database.php');
 
+$errormsg = array();
+
+// INSERT処理 新規スレッドを立ち上げ
 if (isset($_POST['title'])) {
-	$title = $_POST['title'];
-	var_dump($title);
-	var_dump($_SERVER['SCRIPT_NAME']);
+	try {
+		$sql = "INSERT INTO threads (title) VALUES (:title)";
+		$stmt = $dbh->prepare($sql);
+		$stmt->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
+		$stmt->execute();
+
+		header("location: views/pages/thread.php");
+	} catch (Exception $e) {
+		echo 'Error: ' . $e->getMessage();
+		$errormsg = 'スレッドの立ち上げに失敗しました。';
+	}
 }
 
 ?>
@@ -30,7 +41,15 @@ if (isset($_POST['title'])) {
 	<!-- メインコンテンツ -->
 	<main class="container my-4">
 
+		<!-- エラー内容表示 -->
+		<?php if (!empty($errormsg)) { ?>
+			<div class="bg-danger text-white p-3 rounded">
+				<?php echo $errormsg; ?>
+			</div>
+		<?php } ?>
+
 		<!-- スレッドを立ち上げる -->
+		
 		<div class="container my-3 p-3 bg-success-subtle">
 			<h2>スレッドを立ち上げる</h2>
 			<form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="POST">
@@ -38,7 +57,6 @@ if (isset($_POST['title'])) {
 					<label for="title" class="form-label">スレッド名</label>
 					<input type="text" class="form-control" id="title" name="title" placeholder="スレッド名を入力">
 				</div>
-				<input type="hidden" name="id">
 				<button type="submit" class="btn btn-success">送信</button>
 			</form>
 		</div>

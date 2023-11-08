@@ -8,7 +8,12 @@ if (isset($_POST['title'])) {
     $stmt->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
     $stmt->execute();
 
-    header("location: views/pages/thread.php");
+    // 新規挿入されたスレッドのIDを取得
+    $newThreadId = $dbh->lastInsertId();
+
+    // 新規スレッドのページにリダイレクト
+    header("Location: views/pages/thread.php?id=" . $newThreadId);
+    exit;
   } catch (PDOException $e) {
     echo 'Error: ' . $e->getMessage();
     $error_msg = 'スレッドの立ち上げに失敗しました。';

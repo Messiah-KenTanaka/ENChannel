@@ -15,7 +15,8 @@ if (isset($_POST['title'])) {
     header("Location: views/pages/thread.php?id=" . $newThreadId);
     exit;
   } catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
+    // echo 'Error: ' . $e->getMessage();
     $error_msg = 'スレッドの立ち上げに失敗しました。';
+    header("Location: index.php");
   }
 }

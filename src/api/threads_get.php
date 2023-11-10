@@ -2,7 +2,7 @@
 
 // SELECT スレッド一覧を取得
 try {
-  $sql = "SELECT * FROM theads ORDER BY id DESC";
+  $sql = "SELECT * FROM threads ORDER BY id DESC";
   $stmt = $dbh->prepare($sql);
   $stmt->execute();
   $threads = $stmt->fetchAll();

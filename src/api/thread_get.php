@@ -11,5 +11,5 @@ try {
 	$thread = $stmt->fetch();
 } catch (PDOException $e) {
 	// echo 'ERROR: ' . $e->getMessage();
-	$error_msg = 'スレッドが取得できませんでした。';
+	$error_msg[] = 'スレッドが取得できませんでした。';
 }

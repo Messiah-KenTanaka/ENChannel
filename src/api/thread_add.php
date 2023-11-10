@@ -16,7 +16,7 @@ if (isset($_POST['title'])) {
     exit;
   } catch (PDOException $e) {
     // echo 'Error: ' . $e->getMessage();
-    $error_msg = 'スレッドの立ち上げに失敗しました。';
+    $error_msg[] = 'スレッドの立ち上げに失敗しました。';
     header("Location: index.php");
   }
 }

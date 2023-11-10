@@ -1,12 +1,15 @@
 <?php
 
-// SELECT スレッド一覧を取得
+$thread_id = (int)($_GET['id'] ?? 0);
+
+// SELECT スレッド(1件)を取得
 try {
-  $sql = "SELECT * FROM threads ORDER BY id DESC";
-  $stmt = $dbh->prepare($sql);
-  $stmt->execute();
-  $threads = $stmt->fetchAll();
+	$sql = "SELECT * FROM threads WHERE id = :id";
+	$stmt = $dbh->prepare($sql);
+	$stmt->bindValue(':id', $thread_id, PDO::PARAM_INT);
+	$stmt->execute();
+	$thread = $stmt->fetch();
 } catch (PDOException $e) {
-  // echo 'Error: ' . $e->getMessage();
-  $error_msg = 'スレッド一覧を読み込めませんでした。';
+	// echo 'ERROR: ' . $e->getMessage();
+	$error_msg = 'スレッドが取得できませんでした。';
 }

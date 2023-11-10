@@ -1,22 +1,11 @@
 <?php
 
 include(__DIR__ . '../../../database/database.php');
-include(__DIR__ . '../../../app/functions/utill.php');
+include(__DIR__ . '../../../app/functions/util.php');
 
 $error_msg = array();
 
-$thread_id = (int)($_GET['id'] ?? 0);
-
-try {
-	$sql = "SELECT * FROM threads WHERE id = :id";
-	$stmt = $dbh->prepare($sql);
-	$stmt->bindValue(':id', $thread_id, PDO::PARAM_INT);
-	$stmt->execute();
-	$thread = $stmt->fetch();
-} catch (PDOException $e) {
-	// echo 'ERROR: ' . $e->getMessage();
-	$error_msg = 'スレッドが取得できませんでした。';
-}
+include(__DIR__ . '../../../api/thread_get.php');
 
 ?>
 
@@ -43,22 +32,8 @@ try {
 		<!-- エラー内容表示 -->
 		<?php include(__DIR__ . '../../../views/parts/validation.php'); ?>
 
-		<!-- スレッド一覧 -->
-		<div class="container my-3">
-			<div class="card bg-light">
-				<div class="card-body">
-					<h3 class="card-title"><?= h($thread['title']) ?></h3>
-					<div class="d-flex justify-content-between align-items-center">
-						<div class="btn-group">
-							<!-- <button type="button" class="btn btn-sm btn-outline-secondary">表示</button> -->
-							<!-- <button type="button" class="btn btn-sm btn-outline-secondary">編集</button> -->
-						</div>
-						<small class="text-muted">投稿日：<?= date('Y年m月d日 H:i', strtotime($thread['created_at'])) ?></small>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		<!-- スレッド -->
+		<?php include(__DIR__ . '../../parts/thread.php'); ?>
 
 	</main>
 

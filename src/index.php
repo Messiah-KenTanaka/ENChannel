@@ -1,14 +1,14 @@
 <?php
 
 include(__DIR__ . '/database/database.php');
-include(__DIR__ . '/app/functions/utill.php');
+include(__DIR__ . '/app/functions/util.php');
 
 $error_msg = array();
 
 // INSERT処理 新規スレッドを立ち上げ
 include(__DIR__ . '/api/thread_add.php');
 // SELECT スレッド一覧を取得
-include(__DIR__ . '/api/thread_get.php');
+include(__DIR__ . '/api/threads_get.php');
 
 ?>
 

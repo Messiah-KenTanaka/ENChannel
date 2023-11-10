@@ -1,6 +1,6 @@
 <?php
 
-$thread_id = (int)($_GET['id'] ?? 0);
+$thread_id = (int)($_GET['id'] ?? $_POST['thread_id']);
 
 // SELECT スレッド(1件)を取得
 try {

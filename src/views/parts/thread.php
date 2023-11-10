@@ -1,5 +1,5 @@
 		<!-- スレッド -->
-		<div class="container my-3">
+		<div class="container">
 			<div class="card bg-light">
 				<div class="card-body">
 					<h3 class="card-title"><?= h($thread['title']) ?></h3>

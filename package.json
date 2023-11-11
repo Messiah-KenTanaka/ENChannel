@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:sass": "sass --watch 'src/views/scss/style.scss':'src/views/css/style.css'"
+    "watch:sass": "sass --watch 'src/views/scss/style.scss':'src/views/css/style.css'",
+    "heroku-postbuild": "npm run prod"
   },
   "keywords": [],
   "author": "",

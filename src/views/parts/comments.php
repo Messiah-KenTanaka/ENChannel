@@ -11,7 +11,7 @@
                   <?= h($comment['user_name']) ?>
                 </span>
               </span>
-              <span class="text-end"><?= h($comment['created_at']) ?></span>
+              <span class="text-end"><?= date('Y年m月d日 H:i', strtotime($comment['created_at'])) ?></span>
             </div>
             <p><?= h($comment['comment']) ?></p>
           </td>

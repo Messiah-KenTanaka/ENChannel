@@ -1,7 +1,9 @@
 <!-- スレッド一覧 -->
 <section id="home" class="my-4">
-  <h2>スレッド一覧</h2>
-  <p>ようこそ89ちゃんねるへ。ここでは様々な話題についてディスカッションを行うことができます。</p>
+  <div class="text-white">
+    <h2>スレッド一覧</h2>
+    <p>ようこそ89ちゃんねるへ。ここでは様々な話題についてディスカッションを行うことができます。</p>
+  </div>
   <div class="row">
     <?php foreach ($threads as $thread) : ?>
       <div class="col-md-6">

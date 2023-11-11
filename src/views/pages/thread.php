@@ -16,8 +16,8 @@ if (isset($_POST['thread_id']) && isset($_POST['user_name']) && isset($_POST['co
 	$stmt->bindValue(':comment', $_POST['comment'], PDO::PARAM_STR);
 	$stmt->execute();
 
-	// header('Location: thread.php');
-	// exit;
+	header('Location: thread.php?id=' . $_POST['thread_id']);
+	exit;
 }
 
 // コメント一覧
@@ -58,7 +58,7 @@ $comments = $stmt->fetchAll();
 						<input type="hidden" name="thread_id" value="<?php echo $thread['id'] ?>">
 					</div>
 					<div class="col-auto">
-						<button type="submit" class="btn btn-warning">送信</button>
+						<button type="submit" class="btn btn-warning">書き込む</button>
 					</div>
 				</div>
 				<textarea class="form-control" id="comment" name="comment" placeholder="コメント..." minlength="0" maxlength="500" required rows="3"></textarea>
@@ -73,7 +73,11 @@ $comments = $stmt->fetchAll();
 						<tr>
 							<td>
 								<div class="d-flex justify-content-between">
-									<span>ニックネーム：<?= h($comment['user_name']) ?></span>
+									<span>ニックネーム：
+										<span class="text-success">
+											<?= h($comment['user_name']) ?>
+										</span>
+									</span>
 									<span class="text-end"><?= h($comment['created_at']) ?></span>
 								</div>
 								<p><?= h($comment['comment']) ?></p>

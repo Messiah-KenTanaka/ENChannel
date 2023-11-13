@@ -2,7 +2,7 @@
 
 // コメント一覧取得
 try {
-  $sql = "SELECT * FROM comments WHERE thread_id = :thread_id ORDER BY id DESC";
+  $sql = "SELECT * FROM comments WHERE thread_id = :thread_id ORDER BY id DESC LIMIT 100";
   $stmt = $dbh->prepare($sql);
   $stmt->bindValue(':thread_id', $thread['id'], PDO::PARAM_INT);
   $stmt->execute();

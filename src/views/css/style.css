@@ -1,14 +1,5 @@
 body {
   padding-bottom: 150px;
-  background-image: url("../assets/black_bass_89_bg_01.png");
-  background-size: cover;
-  background-position: center;
-}
-@media (max-width: 768px) {
-  body {
-    background-size: contain;
-    background-position: top;
-  }
 }
 
 a {

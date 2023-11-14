@@ -1,14 +1,14 @@
 body {
   padding-bottom: 150px;
-  background-image: url('../assets/black_bass_89_bg_01.png');
-  background-size: cover;
-  background-position: center;
+  // background-image: url('../assets/black_bass_89_bg_01.png');
+  // background-size: cover;
+  // background-position: center;
 
-  // モバイル
-  @media (max-width: 768px) {
-    background-size: contain;
-    background-position: top;
-  }
+  // // モバイル
+  // @media (max-width: 768px) {
+  //   background-size: contain;
+  //   background-position: top;
+  // }
 }
 
 a {

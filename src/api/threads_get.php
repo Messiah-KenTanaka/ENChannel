@@ -9,4 +9,5 @@ try {
 } catch (PDOException $e) {
   // echo 'Error: ' . $e->getMessage();
   $error_msg[] = 'スレッド一覧を読み込めませんでした。';
+  writeLog('ERROR: スレッドを読み込めませんでした。');
 }

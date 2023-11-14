@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+include(__DIR__ . '../../../database/database.php');
 include(__DIR__ . '../../functions/util.php');
 
 // ログメッセージの作成

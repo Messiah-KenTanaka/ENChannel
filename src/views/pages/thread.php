@@ -5,9 +5,9 @@ include(__DIR__ . '../../../app/functions/util.php');
 
 $error_msg = array();
 
-include(__DIR__ . '../../../api/thread_get.php');
-include(__DIR__ . '../../../api/comment_add.php');
-include(__DIR__ . '../../../api/comments_get.php');
+include(__DIR__ . '../../../app/controllers/thread_get.php');
+include(__DIR__ . '../../../app/controllers/comment_add.php');
+include(__DIR__ . '../../../app/controllers/comments_get.php');
 ?>
 
 <!DOCTYPE html>

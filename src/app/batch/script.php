@@ -1,9 +1,9 @@
 <?php 
 
-$data = new Datetime();
-$timestamp = $data->format('Y-m-d H:i:s');
+include(__DIR__ . '../../functions/util.php');
 
 // ログメッセージの作成
-$logMessage = "Batch script execute at: ". $timestamp . "\n";
+$logMessage = "Batch script execute at: " . "\n";
 
 // ログファイルへの書き込み
+writeLog($logMessage);

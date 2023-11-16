@@ -1,7 +1,7 @@
 <?php
 
-include(__DIR__ . '../../../database/database.php');
 include(__DIR__ . '../../../app/functions/util.php');
+include(__DIR__ . '../../../database/database.php');
 
 $error_msg = array();
 

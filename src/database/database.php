@@ -26,6 +26,6 @@ try {
   writeLog('データベースの接続に成功しました');
 } catch (PDOException $e) {
   print("データベースの接続に失敗しました" . $e->getMessage());
-  writeLog('データベースの接続に失敗しました');
+  writeLog('データベースの接続に失敗しました' . $e->getMessage());
   die();
 }

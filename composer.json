@@ -4,6 +4,7 @@
         "ext-mbstring": "*"
     },
     "require-dev": {
-        "phpdocumentor/phpdocumentor": "^2.9"
+        "phpdocumentor/phpdocumentor": "^2.9",
+        "phpstan/phpstan": "^1.10"
     }
 }

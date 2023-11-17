@@ -10,9 +10,9 @@ if (!function_exists('h')) {
 }
 
 // ログをファイルに出力
-function writeLog($message, $kinds = NULL)
+function writeLog($message, $logType = NULL)
 {
-  $data = new DateTime();
+  $data = new DateTime("now", new DateTimeZone('Asia/Tokyo'));
   $timestamp = $data->format('Y-m-d H:i:s');
   // 引数が配列またはオブジェクトの場合、print_rを使用して文字列に変換
   if (is_array($message) || is_object($message)) {
@@ -21,8 +21,8 @@ function writeLog($message, $kinds = NULL)
 
   $logMessage = $timestamp . '：' . $message . "\n";
 
-  switch ($kinds) {
-    case 'cron': // クーロン処理の場合
+  switch ($logType) {
+    case LOG_TYPE_CRON: // クーロン処理の場合
       file_put_contents(__DIR__ . '/../../logs/cron.log', $logMessage, FILE_APPEND);
       break;
     default:

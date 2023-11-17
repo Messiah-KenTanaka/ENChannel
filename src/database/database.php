@@ -23,9 +23,9 @@ if ($dbUrl) {
 try {
   $dbh = new PDO($dsn, $dbUser, $dbPass);
   // print("データベースの接続に成功しました");
-  writeLog('データベースの接続に成功しました');
+  writeLog('データベースの接続に成功しました'. "\n");
 } catch (PDOException $e) {
   print("データベースの接続に失敗しました" . $e->getMessage());
-  writeLog('データベースの接続に失敗しました' . $e->getMessage());
+  writeLog('データベースの接続に失敗しました' . $e->getMessage() . "\n");
   die();
 }

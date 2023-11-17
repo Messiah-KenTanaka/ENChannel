@@ -1,5 +1,6 @@
 <?php
 
+include(__DIR__ . '/config/config.php');
 include(__DIR__ . '/app/functions/util.php');
 include(__DIR__ . '/database/database.php');
 

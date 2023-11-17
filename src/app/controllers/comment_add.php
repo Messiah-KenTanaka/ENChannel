@@ -13,7 +13,7 @@ if (isset($_POST['thread_id']) && isset($_POST['user_name']) && isset($_POST['co
 		header('Location: thread.php?id=' . $_POST['thread_id']);
 		exit;
 	} catch (PDOException $e) {
-		echo 'ERROR: ' . $e->getmessage();
+		echo 'ERROR: ' . $e->getMessage();
 		$error_msg[] = 'コメントの投稿に失敗しました。';
 	}
 }

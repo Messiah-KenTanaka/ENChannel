@@ -3,7 +3,7 @@
   <form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="POST">
     <div class="row mb-2">
       <div class="col">
-        <input type="text" class="form-control" id="user_name" name="user_name" placeholder="ニックネーム..." minlength="0" maxlength="16">
+        <input type="text" class="form-control" id="user_name" name="user_name" placeholder="ニックネーム..." minlength="0" maxlength="16" value="<?= h($_SESSION['user_name']) ?? '' ?>">
         <input type="hidden" name="thread_id" value="<?php echo $thread['id'] ?>">
       </div>
       <div class="col-auto">

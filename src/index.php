@@ -1,14 +1,12 @@
 <?php
 
+session_start();
+$error_msg = array();
+
 include(__DIR__ . '/config/config.php');
 include(__DIR__ . '/app/functions/util.php');
 include(__DIR__ . '/database/database.php');
-
-$error_msg = array();
-
-// INSERT処理 新規スレッドを立ち上げ
 include(__DIR__ . '/app/controllers/thread_add.php');
-// SELECT スレッド一覧を取得
 include(__DIR__ . '/app/controllers/threads_get.php');
 
 ?>

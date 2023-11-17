@@ -1,11 +1,11 @@
 <?php
 
+session_start();
+$error_msg = array();
+
 include(__DIR__ . '../../../config/config.php');
 include(__DIR__ . '../../../app/functions/util.php');
 include(__DIR__ . '../../../database/database.php');
-
-$error_msg = array();
-
 include(__DIR__ . '../../../app/controllers/thread_get.php');
 include(__DIR__ . '../../../app/controllers/comment_add.php');
 include(__DIR__ . '../../../app/controllers/comments_get.php');

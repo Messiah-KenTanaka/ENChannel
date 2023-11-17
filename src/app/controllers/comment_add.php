@@ -2,6 +2,9 @@
 
 // コメントを投稿
 if (isset($_POST['thread_id']) && isset($_POST['user_name']) && isset($_POST['comment'])) {
+	// セッションにニックネームをセット
+	$_SESSION['user_name'] = $_POST['user_name'];
+
 	try {
 		$sql = "INSERT INTO comments (thread_id, user_name, comment) VALUE(:thread_id, :user_name, :comment)";
 		$stmt = $dbh->prepare($sql);

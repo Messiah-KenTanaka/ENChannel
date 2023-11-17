@@ -5,8 +5,8 @@ if (isset($_POST['title'])) {
   if (mb_strlen($_POST['title']) <= 0) {
     $error_msg[] = 'スレッド名の入力は必須です。';
   }
-  if (mb_strlen($_POST['title']) > 16) {
-    $error_msg[] = 'スレッド名は16文字以内で設定してください。';
+  if (mb_strlen($_POST['title']) > 128) {
+    $error_msg[] = 'スレッド名は128文字以内で設定してください。';
   }
 
   // INSERT処理 新規スレッドを立ち上げ

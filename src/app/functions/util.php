@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * グローバル関数
+ */
+
+/**
+ * XSS攻撃エスケープ処理関数
+ * 
+ * @param string $str
+ */
 // h関数が未定義の場合は定義
 if (!function_exists('h')) {
   // XSS攻撃をエスケープ処理
@@ -9,7 +18,12 @@ if (!function_exists('h')) {
   }
 }
 
-// ログをファイルに出力
+/**
+ * ログをファイルに出力
+ * 
+ * @param string $message
+ * @param int $logType
+ */
 function writeLog($message, $logType = NULL)
 {
   $data = new DateTime("now", new DateTimeZone('Asia/Tokyo'));

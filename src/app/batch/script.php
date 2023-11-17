@@ -31,7 +31,7 @@ try {
       $stmt->execute();
     }
   }
-  writeLog('UPDATE成功!!', LOG_TYPE_CRON);  
+  writeLog('UPDATE成功!!', LOG_TYPE_CRON);
   // コミット
   $dbh->commit();
 } catch (PDOException $e) {

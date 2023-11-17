@@ -2,5 +2,8 @@
     "require": {
         "vlucas/phpdotenv": "^5.5",
         "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "^2.9"
     }
 }

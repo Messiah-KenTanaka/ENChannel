@@ -9,6 +9,8 @@ services:
       - ./src:/var/www/html
     ports:
       - "8080:80"
+    environment:
+      - TZ=Asia/Tokyo
     depends_on:
       - db
     networks:

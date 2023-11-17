@@ -10,7 +10,7 @@ if (!function_exists('h')) {
 }
 
 // ログをファイルに出力
-function writeLog($message)
+function writeLog($message, $kinds = NULL)
 {
   $data = new DateTime();
   $timestamp = $data->format('Y-m-d H:i:s');
@@ -21,5 +21,11 @@ function writeLog($message)
 
   $logMessage = $timestamp . '：' . $message . "\n";
 
-  file_put_contents(__DIR__ . '/../../logs/app.log', $logMessage, FILE_APPEND);
+  switch ($kinds) {
+    case 'cron': // クーロン処理の場合
+      file_put_contents(__DIR__ . '/../../logs/cron.log', $logMessage, FILE_APPEND);
+      break;
+    default:
+      file_put_contents(__DIR__ . '/../../logs/app.log', $logMessage, FILE_APPEND);
+  }
 }

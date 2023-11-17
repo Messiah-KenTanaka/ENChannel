@@ -4,7 +4,7 @@ include(__DIR__ . '../../functions/util.php');
 include(__DIR__ . '../../../database/database.php');
 
 // ログメッセージの作成
-writeLog('バッチ処理開始');
+writeLog('バッチ処理開始', 'cron');
 
 try {
   // トランザクション開始
@@ -18,7 +18,7 @@ try {
   $stmt = $dbh->prepare($sql);
   $stmt->execute();
   $datas = $stmt->fetchAll();
-  writeLog('SELECT成功!!');
+  writeLog('SELECT成功!!', 'cron');
 
   // コメント数を各スレッドテーブルのカラムに挿入
   if (!empty($datas)) {
@@ -30,14 +30,14 @@ try {
       $stmt->execute();
     }
   }
-  writeLog('UPDATE成功!!');  
+  writeLog('UPDATE成功!!', 'cron');  
   // コミット
   $dbh->commit();
 } catch (PDOException $e) {
   // ロールバック
   $dbh->rollback();
-  writeLog("クエリエラー:" . $e->getMessage());
+  writeLog("クエリエラー:" . $e->getMessage(), 'cron');
 }
 
 // ログファイルへの書き込み
-writeLog('バッチ処理終了');
+writeLog('バッチ処理終了', 'cron');

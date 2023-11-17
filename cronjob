@@ -1,1 +1,1 @@
-0 5 * * * /usr/local/bin/php /var/www/html/app/batch/script.php >> /var/log/cron.log 2>&1
+0 5 * * * /usr/local/bin/php /var/www/html/app/batch/script.php

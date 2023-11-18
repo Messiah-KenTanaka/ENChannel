@@ -10,10 +10,11 @@ if (!function_exists('h')) {
    * XSS攻撃エスケープ処理関数
    * 
    * @param string $str
+   * @return string
    */
   function h($str)
   {
-    echo htmlspecialchars($str, ENT_QUOTES, "UTF-8");
+    return isset($str) ? htmlspecialchars($str, ENT_QUOTES, "UTF-8") : '';
   }
 }
 

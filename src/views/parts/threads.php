@@ -3,7 +3,7 @@
   <p>ようこそ89ちゃんねるへ。ここでは様々な話題についてディスカッションを行うことができます。</p>
   <div class="row">
     <?php foreach ($threads as $thread) : ?>
-      <div class="col-md-6 col-lg-4 mb-4">
+      <div class="col-lg-6 mb-4">
         <div class="card h-100 shadow-sm rounded hover-shadow">
           <a href="views/pages/thread.php?id=<?= urlencode($thread['id']) ?>" class="card-body text-decoration-none">
             <h5 class="card-title text-dark">

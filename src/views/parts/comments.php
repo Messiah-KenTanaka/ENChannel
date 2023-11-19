@@ -31,4 +31,31 @@
       <?php endforeach; ?>
     </tbody>
   </table>
+
+  <!-- ページネーションリンクの追加 -->
+  <!-- <nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+      <?php
+      $range = 2; // 現在のページの前後に表示するページ数
+      $showDots = false; // 省略記号を表示するかどうかのフラグ
+
+      for ($i = 1; $i <= $totalPages; $i++) {
+        // 現在のページの前後の範囲内か、最初のページか最後のページならリンクを表示
+        if ($i == 1 || $i == $totalPages || ($i >= $page - $range && $i <= $page + $range)) {
+          if ($showDots) {
+            echo '<li class="page-item"><a class="page-link" href="#">...</a></li>';
+            $showDots = false;
+          }
+          echo '<li class="page-item' . ($i == $page ? ' active' : '') . '"><a class="page-link" href="?commentPage=' . $i . '">' . $i . '</a></li>';
+        } else {
+          // 現在のページの前後の範囲外で、まだ省略記号を表示していなければ表示する
+          if (!$showDots) {
+            $showDots = true;
+          }
+        }
+      }
+      ?>
+    </ul>
+  </nav> -->
+
 </div>

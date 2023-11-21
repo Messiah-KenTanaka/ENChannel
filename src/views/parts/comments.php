@@ -33,7 +33,7 @@
   </table>
 
   <!-- ページネーションリンクの追加 -->
-  <!-- <nav aria-label="Page navigation" class="mt-4">
+  <nav aria-label="Page navigation" class="mt-4">
     <ul class="pagination justify-content-center">
       <?php
       $range = 2; // 現在のページの前後に表示するページ数
@@ -46,7 +46,7 @@
             echo '<li class="page-item"><a class="page-link" href="#">...</a></li>';
             $showDots = false;
           }
-          echo '<li class="page-item' . ($i == $page ? ' active' : '') . '"><a class="page-link" href="?commentPage=' . $i . '">' . $i . '</a></li>';
+          echo '<li class="page-item' . ($i == $page ? ' active' : '') . '"><a class="page-link" href="?id=' . $thread_id . '&commentPage=' . $i . '">' . $i . '</a></li>';
         } else {
           // 現在のページの前後の範囲外で、まだ省略記号を表示していなければ表示する
           if (!$showDots) {
@@ -56,6 +56,6 @@
       }
       ?>
     </ul>
-  </nav> -->
+  </nav>
 
 </div>

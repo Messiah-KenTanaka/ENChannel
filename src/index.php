@@ -6,8 +6,8 @@ $error_msg = array();
 include(__DIR__ . '/config/config.php');
 include(__DIR__ . '/app/functions/util.php');
 include(__DIR__ . '/database/database.php');
-include(__DIR__ . '/app/controllers/thread_add.php');
-include(__DIR__ . '/app/controllers/threads_get.php');
+include(__DIR__ . '/app/thread_add.php');
+include(__DIR__ . '/app/threads_get.php');
 
 ?>
 
